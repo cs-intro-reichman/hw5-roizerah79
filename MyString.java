@@ -11,7 +11,7 @@ public class MyString {
         System.out.println(subsetOf("sap", "space"));
         System.out.println(subsetOf("spa", "space"));
         System.out.println(subsetOf("c", "space"));
-        System.out.println(subsetOf("z", "space"));
+        System.out.println(subsetOf("aaz", "ocostaza"));
         System.out.println(randomStringOfLetters(6));
         System.out.println(remove("committee","meet"));
         System.out.println(remove(remove("airbusdreamwork","dream"),"bus"));
@@ -52,8 +52,11 @@ public class MyString {
         if(str2.length()<str1.length()) return false;
         boolean contains = true;
         for(int i=0;i<str1.length();i++){
-            if(countChar(str2,str1.charAt(i))==0){
-                return false;
+            if(countChar(str2,str1.charAt(i))<1){
+                contains = false;
+            }
+            if(countChar(str1,str1.charAt(i))>countChar(str2,str1.charAt(i))){
+                contains = false;
             }
         }
         return contains;
@@ -73,6 +76,9 @@ public class MyString {
             if(str.charAt(i)!=32){
                 spacedstr += str.charAt(i) + " ";
             }
+        }
+        if(spacedstr!=""){
+            spacedstr = spacedstr.substring(0, spacedstr.length()-1);
         }
         return spacedstr;
     }
