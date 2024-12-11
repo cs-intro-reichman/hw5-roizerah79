@@ -105,7 +105,7 @@ public class Scrabble {
 			else{
 				hand = MyString.remove(hand, input);
 				score += wordScore(input);
-				System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points");
+				System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points\n");
 			}
 			
 		}
